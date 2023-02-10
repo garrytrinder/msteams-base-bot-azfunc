@@ -22,7 +22,8 @@
     {
       "type": "Action.Execute",
       "title": "Submit",
-      "verb": "formSubmit"
+      "verb": "formSubmit",
+      "data": {}
     }
   ]
 }
