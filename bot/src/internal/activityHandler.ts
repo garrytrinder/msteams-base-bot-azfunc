@@ -1,4 +1,4 @@
-import { Activity, ActivityTypes, BotHandler, TeamsActivityHandler } from "botbuilder";
+import { TeamsActivityHandler } from "botbuilder";
 
 export class BotActivityHandler extends TeamsActivityHandler {
     constructor() {

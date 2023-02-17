@@ -68,6 +68,14 @@ resource functionApp 'Microsoft.Web/sites@2021-02-01' = {
           name: 'SCM_ZIPDEPLOY_DONOT_PRESERVE_FILETIME'
           value: '1' // Zipdeploy files will always be updated. Detail: https://aka.ms/teamsfx-zipdeploy-donot-preserve-filetime
         }
+        {
+          name: 'BLOB_CONNECTION_STRING'
+          value: 'DefaultEndpointsProtocol=https;AccountName=${storage.name};AccountKey=${listKeys(storage.id, storage.apiVersion).keys[0].value};EndpointSuffix=${environment().suffixes.storage}' // Azure Function internal setting
+        }
+        {
+          name: 'BLOB_CONTAINER_NAME_NOTIFICATIONS'
+          value: 'notifications'
+        }
       ]
       ftpsState: 'FtpsOnly'
     }

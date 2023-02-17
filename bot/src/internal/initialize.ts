@@ -1,6 +1,7 @@
 import { ConversationBot } from "@microsoft/teamsfx";
 import { FormSubmitActionHandler } from "../actions/formSubmit";
 import { FormCommandHandler } from "../commands/form";
+import { BlobsStorage } from "./blobsStorage";
 
 export const bot = new ConversationBot({
   adapterConfig: {
@@ -9,6 +10,10 @@ export const bot = new ConversationBot({
   },
   notification: {
     enabled: true,
+    storage: new BlobsStorage(
+      process.env.BLOB_CONNECTION_STRING,
+      process.env.BLOB_CONTAINER_NAME_NOTIFICATIONS
+    ),
   },
   command: {
     enabled: true,
