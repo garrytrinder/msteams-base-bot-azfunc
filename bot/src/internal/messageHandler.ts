@@ -2,7 +2,6 @@ import { AzureFunction, Context, HttpRequest } from "@azure/functions";
 import { BotActivityHandler } from "./activityHandler";
 import { bot } from "./initialize";
 import { ResponseWrapper } from "./responseWrapper";
-import { UserState } from "botbuilder";
 import { conversationState, userState } from "./state";
 
 const httpTrigger: AzureFunction = async function (
