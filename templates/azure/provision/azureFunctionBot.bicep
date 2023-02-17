@@ -76,6 +76,10 @@ resource functionApp 'Microsoft.Web/sites@2021-02-01' = {
           name: 'BLOB_CONTAINER_NAME_NOTIFICATIONS'
           value: 'notifications'
         }
+        {
+          name: 'BLOB_CONTAINER_NAME_STATE'
+          value: 'state'
+        }
       ]
       ftpsState: 'FtpsOnly'
     }

@@ -13,6 +13,7 @@
     {
       "type": "Input.Text",
       "id": "name",
+      "value": "${name}",
       "placeholder": "Enter your name",
       "isRequired": true,
       "errorMessage": "Please enter your name"
