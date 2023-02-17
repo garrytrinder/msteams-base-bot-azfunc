@@ -1,4 +1,5 @@
 import { ConversationState, TeamsActivityHandler, TurnContext, UserState } from "botbuilder";
+import { nameStateAccessor } from "./state";
 
 export class BotActivityHandler extends TeamsActivityHandler {
     protected conversationState: ConversationState;
@@ -8,6 +9,15 @@ export class BotActivityHandler extends TeamsActivityHandler {
         super();
         this.conversationState = conversationState;
         this.userState = userState;
+
+        // handle messages
+        this.onMessage(async (context, next) => {
+            if (context.activity.text.startsWith('/clear')) {
+                await nameStateAccessor.delete(context);
+                await context.sendActivity('State cleared');
+            }
+            await next();
+        });
 
         // handle app install event
         this.onInstallationUpdateAdd(async (context, next) => {
