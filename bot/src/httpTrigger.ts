@@ -8,12 +8,22 @@ const httpTrigger: AzureFunction = async function (
   context: Context,
   req: HttpRequest
 ): Promise<void> {
-  for (const target of await bot.notification.installations()) {
-    await target.sendAdaptiveCard(
-      AdaptiveCards.declare<FormCard>(formCard).render({
-        title: "What is your name?",
-      })
+  const { upn } = req.query;
+
+  const card = AdaptiveCards.declare<FormCard>(formCard).render({
+    title: "What is your name?",
+    name: ""
+  });
+
+  if (upn) {
+    const member = await bot.notification.findMember(m =>
+      Promise.resolve(m.account.userPrincipalName === upn)
     );
+    await member?.sendAdaptiveCard(card);
+  } else {
+    for (const target of await bot.notification.installations()) {
+      await target.sendAdaptiveCard(card);
+    }
   }
 
   context.res = {};
