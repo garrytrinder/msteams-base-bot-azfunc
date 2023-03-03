@@ -3,12 +3,12 @@
     "description": "You can customize the TeamsFx config for different environments. Visit https://aka.ms/teamsfx-env-config to learn more about this.",
     "manifest": {
         "appName": {
-            "short": "base-bot-azfunc",
-            "full": "Full name for base-bot-azfunc"
+            "short": "Azure Function Bot (Dev)",
+            "full": "Azure Function Bot (Dev)"
         },
         "description": {
-            "short": "Short description of base-bot-azfunc",
-            "full": "Full description of base-bot-azfunc"
+            "short": "Shows how to use an Azure Function Bot for bot development",
+            "full": "This sample uses TypeScript, Azure Functions and Teams Toolkit for Visual Studio Code."
         },
         "icons": {
             "color": "resources/color.png",
