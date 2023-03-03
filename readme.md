@@ -1,18 +1,35 @@
 # Microsoft Teams Azure Function Bot Sample
 
-This sample use TypeScript, Azure Functions and Teams Toolkit for Visual Studio Code.
+This sample uses TypeScript, Azure Functions and Teams Toolkit for Visual Studio Code.
 
-It shows how to:
+It aims to provide the basis of a skeleton project that demonstrates common bot features.
 
-- Send an Adaptive Card form to all install locations
-- Send an Adaptive Card form to an specific person
-- Post an Adaptive Card form using a command
+- Send proactive messages
+- Persist bot state
+- Use bot commands
+- Use forms in bots
+
+Bots are conversational, so it shows how to send:
+
+- An Adaptive Card form to all bot install locations
+- An Adaptive Card form to an specific person
+- An Adaptive Card form using a command
+
+Bots can capture user input, so its how to:
+
 - Get user input from an Adaptive Card form
-- Replace Adaptive Card form on submit
-- Show a welcome message to new users
-- Put in place conversation state
+- Replace Adaptive Card form on form submit
+
+Bots are stateful, so it shows how to:
+
+- Use Azure Storage for notification state
+- Use Azure Storage for conversation state
 - Clear state using  `/` command
 - Get and update state values
+
+Bots can be friendly, so it shows to:
+
+- Send a welcome message to new users
 
 ## Prerequisites
 
@@ -25,16 +42,27 @@ To run this sample you will need access to:
 
 You will also need the following installed on your machine:
 
-- Visual Studio Code
-- Teams Toolkit
-- nodejs v16
+- [Visual Studio Code](https://code.visualstudio.com/)
+- [Teams Toolkit](https://marketplace.visualstudio.com/items?itemName=TeamsDevApp.ms-teams-vscode-extension)
+- [nodejs v16](https://nodejs.org/en/download/releases/)
 
 ## Run the sample
 
 1. Clone this repository
 2. Open the folder in Visual Studio Code
 3. Start a debug session, press F5 or use the Debug and Run panel
-4. Follow the onscreen steps and instructions
+4. Follow the on-screen steps to authenticate and add app to Microsost Teams.
+5. Stop debug session
+6. Update variables in `bot\src\.env.teamsfx.local`
+
+```
+BLOB_CONNECTION_STRING=UseDevelopmentStorage=true
+BLOB_CONTAINER_NAME_NOTIFICATIONS=notifications
+BLOB_CONTAINER_NAME_STATE=state
+```
+
+7. Start a new debug session, follow steps.
+8. Test the sample!
 
 ## Test the sample
 
