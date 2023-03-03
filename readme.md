@@ -1,5 +1,9 @@
 # Microsoft Teams Azure Function Bot Sample
 
+<video src="https://user-images.githubusercontent.com/11563347/222792027-76b1025c-eb0c-4b18-b399-0b67269dbdf7.mp4" data-canonical-src="https://user-images.githubusercontent.com/11563347/222792027-76b1025c-eb0c-4b18-b399-0b67269dbdf7.mp4" controls="controls" muted="muted" class="d-block rounded-bottom-2 border-top width-fit" style="max-height:640px; min-height: 200px">
+  </video>
+
+
 This sample uses TypeScript, Azure Functions and Teams Toolkit for Visual Studio Code.
 
 It aims to provide the basis of a skeleton project that demonstrates common bot features.
