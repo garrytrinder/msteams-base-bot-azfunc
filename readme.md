@@ -25,7 +25,7 @@ Bots are stateful, so it shows how to:
 
 - Use Azure Storage for notification state
 - Use Azure Storage for conversation state
-- Clear state using  `/` command
+- Clear state using `/` command
 - Get and update state values
 
 Bots can be friendly, so it shows how to:
