@@ -2,6 +2,7 @@ import { ConversationState, TeamsActivityHandler, TurnContext, UserState } from 
 import { nameStateAccessor } from "./state";
 
 export class BotActivityHandler extends TeamsActivityHandler {
+    // Define state properties
     protected conversationState: ConversationState;
     protected userState: UserState;
 
@@ -10,7 +11,7 @@ export class BotActivityHandler extends TeamsActivityHandler {
         this.conversationState = conversationState;
         this.userState = userState;
 
-        // handle messages
+        // handle incoming messages
         this.onMessage(async (context, next) => {
             if (context.activity.text.startsWith('/clear')) {
                 await nameStateAccessor.delete(context);
@@ -26,10 +27,11 @@ export class BotActivityHandler extends TeamsActivityHandler {
         });
     }
 
+    // Override the run() method to save state changes after the bot logic completes.
     async run(context: TurnContext) {
         await super.run(context);
 
-        // Save any state changes.
+        // save state changes
         await this.conversationState.saveChanges(context);
         await this.userState.saveChanges(context);
     }

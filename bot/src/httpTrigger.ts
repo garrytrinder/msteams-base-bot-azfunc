@@ -8,13 +8,16 @@ const httpTrigger: AzureFunction = async function (
   context: Context,
   req: HttpRequest
 ): Promise<void> {
+  // get the user principal name from the query string
   const { upn } = req.query;
 
+  // render the adaptive card
   const card = AdaptiveCards.declare<FormCard>(formCard).render({
     title: "What is your name?",
     name: ""
   });
 
+  // send the card to the user or all users
   if (upn) {
     const member = await bot.notification.findMember(m =>
       Promise.resolve(m.account.userPrincipalName === upn)
@@ -26,6 +29,7 @@ const httpTrigger: AzureFunction = async function (
     }
   }
 
+  // return an empty response
   context.res = {};
 };
 

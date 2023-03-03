@@ -13,5 +13,5 @@ export const conversationState = new ConversationState(storage);
 // initialise the user state
 export const userState = new UserState(storage);
 
-// create the state accessors
+// create the name state property accessor
 export const nameStateAccessor = conversationState.createProperty("name");

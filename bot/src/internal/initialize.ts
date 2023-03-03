@@ -3,6 +3,7 @@ import { FormSubmitActionHandler } from "../actions/formSubmit";
 import { FormCommandHandler } from "../commands/form";
 import { BlobsStorage } from "./blobsStorage";
 
+// initialise the bot
 export const bot = new ConversationBot({
   adapterConfig: {
     appId: process.env.BOT_ID,
