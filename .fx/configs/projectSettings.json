@@ -12,7 +12,8 @@
                 "notification"
             ],
             "build": true,
-            "folder": "bot"
+            "folder": "bot",
+            "sso": true
         },
         {
             "name": "bot-service",
@@ -23,12 +24,18 @@
             "scenario": "Bot",
             "connections": [
                 "identity",
+                "aad-app",
                 "teams-bot"
             ]
         },
         {
             "name": "identity",
             "provision": true
+        },
+        {
+            "name": "aad-app",
+            "provision": true,
+            "deploy": true
         }
     ],
     "programmingLanguage": "typescript",
@@ -43,6 +50,7 @@
             "fx-resource-appstudio",
             "fx-resource-cicd",
             "fx-resource-api-connector",
+            "fx-resource-aad-app-for-teams",
             "fx-resource-bot",
             "fx-resource-identity"
         ]

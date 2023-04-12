@@ -1,5 +1,5 @@
 import { ConversationState, TeamsActivityHandler, TurnContext, UserState } from "botbuilder";
-import { nameStateAccessor } from "./state";
+import { accessTokenStateAccessor, nameStateAccessor } from "./state";
 
 export class BotActivityHandler extends TeamsActivityHandler {
     // Define state properties
@@ -11,18 +11,23 @@ export class BotActivityHandler extends TeamsActivityHandler {
         this.conversationState = conversationState;
         this.userState = userState;
 
+        // handle app install event
+        this.onInstallationUpdateAdd(async (context, next) => {
+            await context.sendActivity(`Hi 👋`);
+            await next();
+        });
+
         // handle incoming messages
         this.onMessage(async (context, next) => {
             if (context.activity.text.startsWith('/clear')) {
                 await nameStateAccessor.delete(context);
+                await accessTokenStateAccessor.delete(context);
                 await context.sendActivity('Clean 🧼✨');
             }
-            await next();
-        });
-
-        // handle app install event
-        this.onInstallationUpdateAdd(async (context, next) => {
-            await context.sendActivity(`Hi 👋`);
+            if (context.activity.text.startsWith('/token')) {
+                const { token } = await accessTokenStateAccessor.get(context);
+                await context.sendActivity(token);
+            }
             await next();
         });
     }

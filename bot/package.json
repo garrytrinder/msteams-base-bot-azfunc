@@ -24,7 +24,8 @@
         "@microsoft/adaptivecards-tools": "^1.0.0",
         "@microsoft/teamsfx": "^2.0.0",
         "botbuilder": "^4.17.0",
-        "botbuilder-azure-blobs": "^4.19.1"
+        "botbuilder-azure-blobs": "^4.19.1",
+        "isomorphic-fetch": "^3.0.0"
     },
     "devDependencies": {
         "@azure/functions": "^1.2.3",

@@ -6,7 +6,7 @@ import { nameStateAccessor } from "../internal/state";
 import { FormCard } from "../models/formCard";
 
 export class FormCommandHandler implements TeamsFxBotCommandHandler {
-  triggerPatterns: TriggerPatterns = "form";
+  triggerPatterns: TriggerPatterns = new RegExp(/^form$/);
 
   // handle the command
   async handleCommandReceived(context: TurnContext, message: CommandMessage): Promise<string | void | Partial<Activity>> {

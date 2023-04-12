@@ -9,6 +9,7 @@ It aims to provide the basis of a skeleton project that demonstrates common bot 
 - Use bot commands
 - Capture user input
 - Persist bot state
+- Single sign-on (SSO)
 
 Bots can use interactive cards, so it shows how to send:
 
@@ -31,6 +32,13 @@ Bots are stateful, so it shows how to:
 Bots can be friendly, so it shows how to:
 
 - Send a welcome message to new users
+
+Bots can handle authentication, so it shows how to:
+
+- Obtain an access token from Azure AD using an Adaptive Card
+- Exchange an access token for a Microsoft Graph bearer token
+- Create a Microsoft Graph Client
+- Make an authenticated request to Microsoft Graph using On-Behalf-Of flow
 
 ## Prerequisites
 
@@ -82,6 +90,14 @@ Post an Adaptive Card form using a command:
 
 Send a message in the chat with the word `form`.
 
+Sign in and call Microsoft Graph:
+
+Send a message in the chat with the word `/signin`.
+
+View access token:
+
+Send a message in the chat with the word `/token`.
+
 Clear state:
 
 Send a message in the chat with the word `/clear`.
@@ -94,3 +110,4 @@ Send a message in the chat with the word `/clear`.
 - [Respond to chat commands in Teams](https://github.com/OfficeDev/TeamsFx/wiki/Respond-to-chat-commands-in-Teams)
 - [Respond to card actions in Teams](https://github.com/OfficeDev/TeamsFx/wiki/Respond-to-card-actions-in-Teams)
 - [Designing adaptive cards for your Microsoft Teams app](https://learn.microsoft.com/en-us/microsoftteams/platform/task-modules-and-cards/cards/design-effective-cards?tabs=design&WT.mc_id=m365-90825-cxa)
+- [Enable SSO for Adaptive Cards Universal Actions in your bot](https://learn.microsoft.com/en-us/microsoftteams/platform/task-modules-and-cards/cards/universal-actions-for-adaptive-cards/enable-sso-for-your-adaptive-cards-universal-action?WT.mc_id=m365-90825-garrytrinder)

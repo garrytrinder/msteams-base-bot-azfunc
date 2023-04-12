@@ -1,0 +1,34 @@
+{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "version": "1.5",
+    "type": "AdaptiveCard",
+    "refresh": {
+      "action": {
+        "fallback": "drop",
+        "type": "Action.Execute",
+        "verb": "signInEnd"
+      }
+    },
+    "authentication": {
+      "text": "Signin Text",
+      "connectionName": "BotSSOAdaptivecardConnection",
+      "tokenExchangeResource": {
+        "id": "${appId}"
+      },
+      "buttons": [
+        {
+          "type": "signin",
+          "title": "Please sign in",
+          "value": "https://token.botframework.com/api/oauth/signin?signin=${appId}"
+        }
+      ]
+    },
+    "body": [
+      {
+        "type": "TextBlock",
+        "text": "Signing in",
+        "size": "Medium",
+        "weight": "Bolder"
+      }
+    ]
+  }
