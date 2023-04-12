@@ -1,13 +1,19 @@
-import { ConversationBot } from "@microsoft/teamsfx";
-import { FormSubmitActionHandler } from "../actions/formSubmit";
-import { FormCommandHandler } from "../commands/form";
+import { BotBuilderCloudAdapter } from "@microsoft/teamsfx";
+import ConversationBot = BotBuilderCloudAdapter.ConversationBot;
 import { BlobsStorage } from "./blobsStorage";
+import { FormCommandHandler } from "../commands/form";
+import { SignInCommandHandler } from "../commands/signIn";
+import { FormSubmitActionHandler } from "../actions/formSubmit";
+import { SignInStartActionHandler } from "../actions/signinStart";
+import { SignInEndActionHandler } from "../actions/signinEnd";
 
 // initialise the bot
 export const bot = new ConversationBot({
   adapterConfig: {
-    appId: process.env.BOT_ID,
-    appPassword: process.env.BOT_PASSWORD,
+    MicrosoftAppId: process.env.BOT_ID,
+    MicrosoftAppPassword: process.env.BOT_PASSWORD,
+    MicrosoftAppType: "MultiTenant",
+
   },
   notification: {
     enabled: true,
@@ -20,12 +26,19 @@ export const bot = new ConversationBot({
     enabled: true,
     commands: [
       new FormCommandHandler(),
+      new SignInCommandHandler()
     ]
   },
   cardAction: {
     enabled: true,
     actions: [
-      new FormSubmitActionHandler()
+      new FormSubmitActionHandler(),
+      new SignInStartActionHandler(),
+      new SignInEndActionHandler()
     ]
   }
 });
+
+bot.adapter.onTurnError = async (context, error) => {
+  await context.sendActivity(error);
+}

@@ -3,6 +3,7 @@ import { BotActivityHandler } from "./activityHandler";
 import { bot } from "./initialize";
 import { ResponseWrapper } from "./responseWrapper";
 import { conversationState, userState } from "./state";
+import "isomorphic-fetch";
 
 const httpTrigger: AzureFunction = async function (
   context: Context,

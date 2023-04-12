@@ -40,6 +40,10 @@
                         {
                             "title": "form",
                             "description": "Example form"
+                        },
+                        {
+                            "title": "signin",
+                            "description": "Example signin"
                         }
                     ]
                 }
@@ -54,6 +58,11 @@
         "messageTeamMembers"
     ],
     "validDomains": [
-        "{{state.fx-resource-bot.domain}}"
-    ]
+        "{{state.fx-resource-bot.domain}}",
+        "token.botframework.com"
+    ],
+    "webApplicationInfo": {
+        "id": "{{state.fx-resource-aad-app-for-teams.clientId}}",
+        "resource": "api://botid-{{state.fx-resource-bot.botId}}"
+    }
 }
