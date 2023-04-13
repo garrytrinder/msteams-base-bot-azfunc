@@ -3,7 +3,7 @@
     "appId": "{{state.fx-resource-aad-app-for-teams.clientId}}",
     "name": "{{config.manifest.appName.short}}-aad",
     "accessTokenAcceptedVersion": 2,
-    "signInAudience": "AzureADMyOrg",
+    "signInAudience": "AzureADMultipleOrgs",
     "optionalClaims": {
         "idToken": [],
         "accessToken": [
